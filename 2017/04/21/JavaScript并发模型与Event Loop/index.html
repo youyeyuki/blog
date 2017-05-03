@@ -97,8 +97,8 @@
 <meta property="og:site_name" content="考拉前端团队博客">
 <meta property="og:description" content="并发模型可视化描述 如上图所示，Javascript执行引擎的主线程运行的时候，产生堆（heap）和栈（stack），程序中代码依次进入栈中等待执行，若执行时遇到异步方法，该异步方法会被添加到用于回调的队列（queue）中【即JavaScript执行引擎的主线程拥有一个执行栈/堆和一个任务队列】。">
 <meta property="og:image" content="https://mdn.mozillademos.org/files/4617/default.svg">
-<meta property="og:image" content="http://image.beekka.com/blog/2014/bg2014100802.png">
-<meta property="og:updated_time" content="2017-05-03T01:55:49.017Z">
+<meta property="og:image" content="https://cdn.int64ago.org/6p10znqn.png">
+<meta property="og:updated_time" content="2017-05-03T02:04:33.145Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript并发模型与Event Loop">
 <meta name="twitter:description" content="并发模型可视化描述 如上图所示，Javascript执行引擎的主线程运行的时候，产生堆（heap）和栈（stack），程序中代码依次进入栈中等待执行，若执行时遇到异步方法，该异步方法会被添加到用于回调的队列（queue）中【即JavaScript执行引擎的主线程拥有一个执行栈/堆和一个任务队列】。">
@@ -332,7 +332,7 @@
 <blockquote>
 <p>栈（stack） : 函数调用会形成了一个堆栈帧<br>堆（heap） : 对象被分配在一个堆中，一个用以表示一个内存中大的未被组织的区域。<br>队列（queue） ： 一个 JavaScript 运行时包含了一个待处理的消息队列。每一个消息都与一个函数相关联。当栈为空时，则从队列中取出一个消息进行处理。这个处理过程包含了调用与这个消息相关联的函数（以及因而创建了一个初始堆栈帧）。当栈再次为空的时候，也就意味着该消息处理结束。 </p>
 </blockquote>
-<h3 id="为了更清晰地描述Event-Loop，参考下图的描述："><a href="#为了更清晰地描述Event-Loop，参考下图的描述：" class="headerlink" title="为了更清晰地描述Event Loop，参考下图的描述："></a>为了更清晰地描述Event Loop，参考下图的描述：</h3><p><img src="http://image.beekka.com/blog/2014/bg2014100802.png" alt="model.png"></p>
+<h3 id="为了更清晰地描述Event-Loop，参考下图的描述："><a href="#为了更清晰地描述Event-Loop，参考下图的描述：" class="headerlink" title="为了更清晰地描述Event Loop，参考下图的描述："></a>为了更清晰地描述Event Loop，参考下图的描述：</h3><p><img src="https://cdn.int64ago.org/6p10znqn.png" alt="model.png"></p>
 <p><strong>首先，我们对图中的一些名词稍加解释</strong>：</p>
 <ol>
 <li>queue : 如上文的解释，值得注意的是，除了IO设备的事件(如load)会被添加到queue中，用户操作产生 的事件（如click,touchmove）同样也会被添加到queue中。队列中的这些事件会在主线程的执行栈被清空时被依次读取（队列先进先出，即先被压入队列中的事件会被先执行）。</li>
@@ -403,8 +403,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/19/结合CleanCode的一次代码重构实践/" rel="next" title="结合CleanCode的一次代码重构实践">
-                <i class="fa fa-chevron-left"></i> 结合CleanCode的一次代码重构实践
+              <a href="/2017/04/19/如何理解JS中的闭包/" rel="next" title="如何理解JS中的闭包">
+                <i class="fa fa-chevron-left"></i> 如何理解JS中的闭包
               </a>
             
           </div>
