@@ -97,18 +97,18 @@
 <meta property="og:site_name" content="考拉前端团队博客">
 <meta property="og:description" content="CSS Masonry Layouts（1）—— multi-columnsMasonry Layouts —— 瀑布流布局，核心是一个网格布局，每行包含的内容列表的高度是不可控的，并且，每个内容列表呈堆栈状排列。称作瀑布流，最关键的是——各堆栈间没有多余的间距差（将整个布局看做一个大的容器，最新进来的内容元素，永远在高度最短的那一列上）。具体如下图所示：">
 <meta property="og:image" content="https://olz3b8fm9.bkt.clouddn.com/17-4-18/7095748-file_1492518092681_692f.jpg">
-<meta property="og:image" content="https://olz3b8fm9.bkt.clouddn.com/17-4-19/6894775-file_1492585472987_1485f.jpg">
-<meta property="og:image" content="https://olz3b8fm9.bkt.clouddn.com/17-4-18/91172146-file_1492520732217_3c80.jpg">
-<meta property="og:image" content="https://olz3b8fm9.bkt.clouddn.com/17-4-19/6052647-file_1492583213750_f998.jpg">
-<meta property="og:image" content="https://olz3b8fm9.bkt.clouddn.com/17-4-19/64024046-file_1492585971855_820e.jpg">
-<meta property="og:image" content="https://olz3b8fm9.bkt.clouddn.com/17-4-23/96286616-file_1492935443571_b065.jpg">
-<meta property="og:image" content="https://olz3b8fm9.bkt.clouddn.com/17-4-19/38594787-file_1492589160818_437a.jpg">
-<meta property="og:image" content="https://olz3b8fm9.bkt.clouddn.com/17-4-23/6104793-file_1492933166561_161f.jpg">
-<meta property="og:image" content="https://olz3b8fm9.bkt.clouddn.com/17-4-24/75466976-file_1493030440719_8c45.jpg">
-<meta property="og:image" content="https://olz3b8fm9.bkt.clouddn.com/17-4-23/83117387-file_1492934426479_b060.jpg">
-<meta property="og:image" content="https://olz3b8fm9.bkt.clouddn.com/17-4-24/25746446-file_1493030763216_9a8a.jpg">
-<meta property="og:image" content="https://olz3b8fm9.bkt.clouddn.com/17-4-23/69097383-file_1492934661657_1393a.jpg">
-<meta property="og:updated_time" content="2017-05-03T02:03:50.562Z">
+<meta property="og:image" content="https://cdn.int64ago.org/r4oy5tyl.jpg">
+<meta property="og:image" content="https://cdn.int64ago.org/d26yfnkb.jpeg">
+<meta property="og:image" content="https://cdn.int64ago.org/8tds2ivs.jpeg">
+<meta property="og:image" content="https://cdn.int64ago.org/fimtkz9y.jpeg">
+<meta property="og:image" content="https://cdn.int64ago.org/p7qw71k4.jpeg">
+<meta property="og:image" content="https://cdn.int64ago.org/zkfzanl.jpeg">
+<meta property="og:image" content="https://cdn.int64ago.org/vfhgqllp.jpeg">
+<meta property="og:image" content="https://cdn.int64ago.org/mgd56d9.jpeg">
+<meta property="og:image" content="https://cdn.int64ago.org/d8ducmx.jpeg">
+<meta property="og:image" content="https://cdn.int64ago.org/db76hgs.jpeg">
+<meta property="og:image" content="https://cdn.int64ago.org/bzd833en.jpeg">
+<meta property="og:updated_time" content="2017-05-03T02:12:29.389Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS Masonry Layouts（1）—— multi-columns">
 <meta name="twitter:description" content="CSS Masonry Layouts（1）—— multi-columnsMasonry Layouts —— 瀑布流布局，核心是一个网格布局，每行包含的内容列表的高度是不可控的，并且，每个内容列表呈堆栈状排列。称作瀑布流，最关键的是——各堆栈间没有多余的间距差（将整个布局看做一个大的容器，最新进来的内容元素，永远在高度最短的那一列上）。具体如下图所示：">
@@ -351,18 +351,18 @@
 <li>注：上面略去了对数据的预处理（包括图片的等比缩放以及属性的二次处理等）以及滚动加载的处理过程，对于预加载一屏，由于元素高度的不可控性，只能根据瀑布流元素的平均高度行预估计，然后推算出一屏需要元素的范围，然后请求相应数量。</li>
 </ul>
 <p>简化版应该是下面这样的：</p>
-<p><img src="https://olz3b8fm9.bkt.clouddn.com/17-4-19/6894775-file_1492585472987_1485f.jpg" alt=""></p>
+<p><img src="https://cdn.int64ago.org/r4oy5tyl.jpg" alt=""></p>
 <p>但是，这样处理，表现层的东西依赖 <code>javaScript</code> 来处理，有点多余（当时确实是唯一的办法），能不能用样式来搞定呢？</p>
 <p>首先，会想到 <code>float</code> 或者 <code>inline-block</code> ，但是它们都没办法很好的控制列表之间的间距。最终得到的效果就像下面这样：</p>
-<p><img src="https://olz3b8fm9.bkt.clouddn.com/17-4-18/91172146-file_1492520732217_3c80.jpg" alt=""></p>
+<p><img src="https://cdn.int64ago.org/d26yfnkb.jpeg" alt=""></p>
 <p>那，除此之外，就没有单纯用 <code>css</code> 可以搞定的方法了吗？近几年，<code>css</code> 的技术更新频繁，出现了很多新的布局方法：<code>multi-columns</code>、<code>Flexbox</code>、<code>Grid</code>。用上面提到的布局方法能否实现瀑布流呢？</p>
 <h3 id="multi-columns"><a href="#multi-columns" class="headerlink" title="multi-columns"></a>multi-columns</h3><p><code>multi-columns</code> 产生之初，是用来实现文本多列排列，类似报纸、杂志的文本排列方式。<code>multi-columns</code> 的<strong>列</strong>布局方式跟瀑布流的有些类似：</p>
 <p><a href="https://codepen.io/realign/full/ybeBMm/" target="_blank" rel="external">demo</a></p>
 <p>三列：</p>
-<p><img src="https://olz3b8fm9.bkt.clouddn.com/17-4-19/6052647-file_1492583213750_f998.jpg" alt=""></p>
+<p><img src="https://cdn.int64ago.org/8tds2ivs.jpeg" alt=""></p>
 <p>四列：</p>
-<p><img src="https://olz3b8fm9.bkt.clouddn.com/17-4-19/64024046-file_1492585971855_820e.jpg" alt=""></p>
-<p><img src="https://olz3b8fm9.bkt.clouddn.com/17-4-23/96286616-file_1492935443571_b065.jpg" alt=""></p>
+<p><img src="https://cdn.int64ago.org/fimtkz9y.jpeg" alt=""></p>
+<p><img src="https://cdn.int64ago.org/p7qw71k4.jpeg" alt=""></p>
 <p>猛一看很完美。但是，与使用 js 实现对比之下：</p>
 <ul>
 <li><code>multi-columns</code> 的元素是纵向排列的（在对元素先后次序有要求的情况下不理想）</li>
@@ -370,26 +370,26 @@
 </ul>
 <p>第一个问题，<code>multi-columns</code> 的这种布局方式，决定了只能纵向排列；对于第二个问题:</p>
 <h3 id="multi-columns-简略布局思想"><a href="#multi-columns-简略布局思想" class="headerlink" title="multi-columns 简略布局思想"></a>multi-columns 简略布局思想</h3><p>首先，只有在<strong>多列元素集含有块级元素、并且避免在元素内部断行并产生新列</strong>的时候，才会涉及到布局，上面的瀑布流例子，要是不避免在元素内部断行并产生新列，将会是这样的：</p>
-<p><img src="https://olz3b8fm9.bkt.clouddn.com/17-4-19/38594787-file_1492589160818_437a.jpg" alt=""></p>
+<p><img src="https://cdn.int64ago.org/zkfzanl.jpeg" alt=""></p>
 <p>只有将属性 <code>break-inside</code> 设置为 <code>avoid</code>，才会有块级元素的效果。</p>
 <p>回到上面说到的空白区域的问题，<code>multi-columns</code> 的整体布局会受到几个因素的影响：</p>
-<p><img src="https://olz3b8fm9.bkt.clouddn.com/17-4-23/6104793-file_1492933166561_161f.jpg" alt=""></p>
+<p><img src="https://cdn.int64ago.org/vfhgqllp.jpeg" alt=""></p>
 <p>总体而言，优先级：自身属性 &gt; 容器属性。</p>
 <p>当容器的高度小于按照 <code>column-count</code> 布局后的列的高度，会发生元素断裂、跨列的现象；当容器的高度大于按照 <code>column-count</code> 布局后的列的高度，单个列的高度会由最优布局算法生成。</p>
 <p>所谓最优布局算法，简单来说，就是自适应：</p>
 <ul>
 <li>首先取 <code>column-count</code> ，如果元素（block）个数不超过 <code>column-count</code> ，布局成一横排；</li>
 </ul>
-<p><img src="https://olz3b8fm9.bkt.clouddn.com/17-4-24/75466976-file_1493030440719_8c45.jpg" alt=""></p>
+<p><img src="https://cdn.int64ago.org/mgd56d9.jpeg" alt=""></p>
 <ul>
 <li>若是元素（block）个数超过 <code>column-count</code> ，首先在第一列增加 block 元素，而后以第一列的高度为标准，来填充后续各列（此时会发生列填充不满的情况）；</li>
 </ul>
-<p><img src="https://olz3b8fm9.bkt.clouddn.com/17-4-23/83117387-file_1492934426479_b060.jpg" alt=""></p>
-<p><img src="https://olz3b8fm9.bkt.clouddn.com/17-4-24/25746446-file_1493030763216_9a8a.jpg" alt=""></p>
+<p><img src="https://cdn.int64ago.org/d8ducmx.jpeg" alt=""></p>
+<p><img src="https://cdn.int64ago.org/db76hgs.jpeg" alt=""></p>
 <ul>
 <li>若是之后元素中发现一个高度较高的<strong>X元素</strong>，对于布局的调整会以这个较高的<strong>X元素</strong>为分界线，不会将后面的低高度元素排列到<strong>X元素</strong>之前：</li>
 </ul>
-<p><img src="https://olz3b8fm9.bkt.clouddn.com/17-4-23/69097383-file_1492934661657_1393a.jpg" alt=""></p>
+<p><img src="https://cdn.int64ago.org/bzd833en.jpeg" alt=""></p>
 <p>就会出现较大空白区域的情况。<br>所以，出现空白区域的根本原因是：<code>multi-columns</code> 布局的特点是<strong>按列布局、顺序计算、顺序排列</strong>，前面有较大空白区域，不会用后续元素去填补。</p>
 <p>想要具体了解 <code>multi-columns</code> 布局，请参考：</p>
 <ul>
