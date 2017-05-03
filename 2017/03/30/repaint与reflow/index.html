@@ -96,15 +96,15 @@
 <meta property="og:url" content="https://blog.kaolafed.com/2017/03/30/repaint与reflow/index.html">
 <meta property="og:site_name" content="考拉前端团队博客">
 <meta property="og:description" content="repaint与reflow本文是阅读Rendering:repaint,reflow,restyle、Repaint 、Reflow 的基本认识和优化和网站性能优化之后的笔记记录；">
-<meta property="og:image" content="http://haitao.nos.netease.com/3f491bc6cb7a4f0894723efa4015fb52.png">
-<meta property="og:image" content="http://haitao.nos.netease.com/be5735d4e2ed4757a580e8294618601a.jpg">
-<meta property="og:image" content="http://haitao.nos.netease.com/cf31d8bd4ab0452a90b96378714dafc3.jpg">
-<meta property="og:image" content="http://haitao.nos.netease.com/8e313c6dc4c742b1915e9edd428d749e.jpg">
-<meta property="og:updated_time" content="2017-05-03T01:06:12.123Z">
+<meta property="og:image" content="https://haitao.nos.netease.com/3f491bc6cb7a4f0894723efa4015fb52.png">
+<meta property="og:image" content="https://haitao.nos.netease.com/be5735d4e2ed4757a580e8294618601a.jpg">
+<meta property="og:image" content="https://haitao.nos.netease.com/cf31d8bd4ab0452a90b96378714dafc3.jpg">
+<meta property="og:image" content="https://haitao.nos.netease.com/8e313c6dc4c742b1915e9edd428d749e.jpg">
+<meta property="og:updated_time" content="2017-05-03T01:54:30.138Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="repaint与reflow">
 <meta name="twitter:description" content="repaint与reflow本文是阅读Rendering:repaint,reflow,restyle、Repaint 、Reflow 的基本认识和优化和网站性能优化之后的笔记记录；">
-<meta name="twitter:image" content="http://haitao.nos.netease.com/3f491bc6cb7a4f0894723efa4015fb52.png">
+<meta name="twitter:image" content="https://haitao.nos.netease.com/3f491bc6cb7a4f0894723efa4015fb52.png">
 
 
 
@@ -330,7 +330,7 @@
       
         <h1 id="repaint与reflow"><a href="#repaint与reflow" class="headerlink" title="repaint与reflow"></a>repaint与reflow</h1><p>本文是阅读<a href="http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/#comment-71996" target="_blank" rel="external">Rendering:repaint,reflow,restyle</a>、<a href="https://segmentfault.com/a/1190000002629708" target="_blank" rel="external">Repaint 、Reflow 的基本认识和优化</a>和<a href="https://classroom.udacity.com/courses/ud884/lessons/1469569174/concepts/15244185570923#" target="_blank" rel="external">网站性能优化</a>之后的笔记记录；</p>
 <a id="more"></a>
-<h2 id="什么是Repaint-Reflow"><a href="#什么是Repaint-Reflow" class="headerlink" title="什么是Repaint/Reflow"></a>什么是Repaint/Reflow</h2><p><img src="http://haitao.nos.netease.com/3f491bc6cb7a4f0894723efa4015fb52.png" alt=""><br>上图是浏览器解析的大概过程，归纳为4个步骤：</p>
+<h2 id="什么是Repaint-Reflow"><a href="#什么是Repaint-Reflow" class="headerlink" title="什么是Repaint/Reflow"></a>什么是Repaint/Reflow</h2><p><img src="https://haitao.nos.netease.com/3f491bc6cb7a4f0894723efa4015fb52.png" alt=""><br>上图是浏览器解析的大概过程，归纳为4个步骤：</p>
 <ol>
 <li><code>解析HTML以构建DOM树：</code>渲染引擎开始解析HTML文档，转换树中的html标签或js生成的标签到DOM节点，它被称为 – DOM树。</li>
 <li><code>构建渲染树：</code>解析CSS（包括外部CSS文件和样式元素以及js生成的样式），根据CSS选择器计算出节点的样式，创建另一个树 —- Render树。</li>
@@ -339,14 +339,14 @@
 </ol>
 <p>下面以一个例子说明这个过程：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; &gt;</div><div class="line">  &lt;link href=&quot;style.css&quot; rel=&quot;stylesheet&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">  &lt;p&gt;</div><div class="line">    Hello &lt;span&gt;web performance&lt;/span&gt; students!</div><div class="line">  &lt;/p&gt;</div><div class="line">  &lt;div&gt;</div><div class="line">    &lt;img src=&quot;awe-some-photo.jpg&quot;&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
 <ol>
-<li><p>根据浏览器的解析过程，浏览器首先会将上面的html解析为如下的一个dom树：<br><img src="http://haitao.nos.netease.com/be5735d4e2ed4757a580e8294618601a.jpg" alt=""></p>
+<li><p>根据浏览器的解析过程，浏览器首先会将上面的html解析为如下的一个dom树：<br><img src="https://haitao.nos.netease.com/be5735d4e2ed4757a580e8294618601a.jpg" alt=""></p>
 </li>
-<li><p>根据css样式表生成CSSOM：<br><img src="http://haitao.nos.netease.com/cf31d8bd4ab0452a90b96378714dafc3.jpg" alt=""></p>
+<li><p>根据css样式表生成CSSOM：<br><img src="https://haitao.nos.netease.com/cf31d8bd4ab0452a90b96378714dafc3.jpg" alt=""></p>
 </li>
 <li><p>DOM + CSSOM = RenderTree</p>
 </li>
 </ol>
-<p>然后浏览器会计算每个元素的属性，确定如何展示页面；根据样式和js构建render树, 如下：<br><img src="http://haitao.nos.netease.com/8e313c6dc4c742b1915e9edd428d749e.jpg" alt=""></p>
+<p>然后浏览器会计算每个元素的属性，确定如何展示页面；根据样式和js构建render树, 如下：<br><img src="https://haitao.nos.netease.com/8e313c6dc4c742b1915e9edd428d749e.jpg" alt=""></p>
 <p>对比dom树与render树，可以发现少了head和被隐藏的元素；因为render树只包括可见的元素部分，具体的说，是从page的(0,0)坐标到(window.innerWidth, window.innerHeight)构成的矩形区域；</p>
 <p>从上面的流程中，可以看到页面初始化时，至少有一次layout和paint；这个过程是不可缺少的，那么我们通常所提到的reflow和repaint是什么？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">reflow: 当页面上有一些信息变化时，如大小、位置变化；浏览器可能会需要重新计算元素的展示样式，这个过程称为reflow；</div><div class="line">repaint: 当元素的位置、大小等属性确定好后，浏览器会把这些元素重新绘制一遍，这个过程称为repaint；</div></pre></td></tr></table></figure></p>
 <h3 id="引起Repaint和Reflow的一些操作"><a href="#引起Repaint和Reflow的一些操作" class="headerlink" title="引起Repaint和Reflow的一些操作"></a>引起Repaint和Reflow的一些操作</h3><p>Reflow 的成本比 Repaint 的成本高得多的多。DOM Tree 里的每个结点都会有 reflow 方法，一个结点的 reflow 很有可能导致子结点，甚至父点以及同级结点的 reflow。在一些高性能的电脑上也许还没什么，但是如果 reflow 发生在手机上，那么这个过程是非常痛苦和耗电的。</p>

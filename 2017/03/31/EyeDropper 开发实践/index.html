@@ -96,18 +96,18 @@
 <meta property="og:url" content="https://blog.kaolafed.com/2017/03/31/EyeDropper 开发实践/index.html">
 <meta property="og:site_name" content="考拉前端团队博客">
 <meta property="og:description" content="1. 什么是 EyeDropperChrome Devtools 的颜色提取器 EyeDropper，用惯了 Chrome 的前端开发者并不陌生。">
-<meta property="og:image" content="http://7xidng.com1.z0.glb.clouddn.com/eyedropper.jpg">
-<meta property="og:image" content="http://7xidng.com1.z0.glb.clouddn.com/hue.png">
-<meta property="og:image" content="http://7xidng.com1.z0.glb.clouddn.com/colorful.jpg">
-<meta property="og:image" content="http://7xidng.com1.z0.glb.clouddn.com/eytedropperDetail.png">
-<meta property="og:image" content="http://7xidng.com1.z0.glb.clouddn.com/saturation.png">
-<meta property="og:image" content="http://7xidng.com1.z0.glb.clouddn.com/value.png">
-<meta property="og:image" content="http://7xidng.com1.z0.glb.clouddn.com/regular-color.jpg">
-<meta property="og:updated_time" content="2017-05-03T01:06:12.123Z">
+<meta property="og:image" content="https://7xidng.com1.z0.glb.clouddn.com/eyedropper.jpg">
+<meta property="og:image" content="https://7xidng.com1.z0.glb.clouddn.com/hue.png">
+<meta property="og:image" content="https://7xidng.com1.z0.glb.clouddn.com/colorful.jpg">
+<meta property="og:image" content="https://7xidng.com1.z0.glb.clouddn.com/eytedropperDetail.png">
+<meta property="og:image" content="https://7xidng.com1.z0.glb.clouddn.com/saturation.png">
+<meta property="og:image" content="https://7xidng.com1.z0.glb.clouddn.com/value.png">
+<meta property="og:image" content="https://7xidng.com1.z0.glb.clouddn.com/regular-color.jpg">
+<meta property="og:updated_time" content="2017-05-03T01:50:43.935Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EyeDropper 开发实践">
 <meta name="twitter:description" content="1. 什么是 EyeDropperChrome Devtools 的颜色提取器 EyeDropper，用惯了 Chrome 的前端开发者并不陌生。">
-<meta name="twitter:image" content="http://7xidng.com1.z0.glb.clouddn.com/eyedropper.jpg">
+<meta name="twitter:image" content="https://7xidng.com1.z0.glb.clouddn.com/eyedropper.jpg">
 
 
 
@@ -333,22 +333,22 @@
       
         <h2 id="1-什么是-EyeDropper"><a href="#1-什么是-EyeDropper" class="headerlink" title="1. 什么是 EyeDropper"></a>1. 什么是 EyeDropper</h2><p>Chrome Devtools 的颜色提取器 <a href="https://developers.google.com/web/tools/chrome-devtools/inspect-styles/edit-styles" target="_blank" rel="external">EyeDropper</a>，用惯了 Chrome 的前端开发者并不陌生。</p>
 <a id="more"></a>
-<p><img src="http://7xidng.com1.z0.glb.clouddn.com/eyedropper.jpg" alt="image"></p>
+<p><img src="https://7xidng.com1.z0.glb.clouddn.com/eyedropper.jpg" alt="image"></p>
 <p>但它并不支持在页面中使用，想在页面中使用只能自己实现一个。</p>
 <p>那么接下来就介绍一下如何自己实现一个 EyeDropper。</p>
 <h2 id="2-原理解读"><a href="#2-原理解读" class="headerlink" title="2. 原理解读"></a>2. 原理解读</h2><p>要实现 EyeDropper，必须先学习一下基本的色彩知识。</p>
 <p>物品被光线照射并反射出来，被人的眼睛接收，进而传递到人脑中形成对「色彩」的认知，称之为人的「视觉效应」。</p>
 <h3 id="色彩的三属性"><a href="#色彩的三属性" class="headerlink" title="色彩的三属性"></a>色彩的三属性</h3><h4 id="1-色相（hue）"><a href="#1-色相（hue）" class="headerlink" title="1. 色相（hue）"></a>1. 色相（hue）</h4><p>最最基本的颜色术语、通常用来表示物体的颜色。</p>
 <p>当我们说红、绿、黄时，我们说的就是色相。将色相按照波谱顺序排列，首位相连形成环状则为「色相环」。虽然人们习惯将其分为七种颜色：红、橙、黄、绿、青、蓝、紫，但实际上的光谱应该是连续的。</p>
-<p><img src="http://7xidng.com1.z0.glb.clouddn.com/hue.png" alt="image"></p>
+<p><img src="https://7xidng.com1.z0.glb.clouddn.com/hue.png" alt="image"></p>
 <h4 id="2-饱和度（saturation）"><a href="#2-饱和度（saturation）" class="headerlink" title="2. 饱和度（saturation）"></a>2. 饱和度（saturation）</h4><p>指在特定的光照条件下颜色是如何呈现的，也就是色彩的鲜艳程度。</p>
 <p>饱和度取决于颜色中含色成分和消色成分（灰色）的比例，即纯度最低的是灰色（无彩色）。高纯度表现为生机朝气，低纯度表现为厚重沉稳。</p>
 <h4 id="3-明度（value）"><a href="#3-明度（value）" class="headerlink" title="3. 明度（value）"></a>3. 明度（value）</h4><p>也被称作亮度，它是指颜色的明亮程度。</p>
 <p>在任何颜色中添加白色，明度上升，添加黑色，明度下降。明度相差越远的两种颜色搭配，色彩之间的交界感就越明显，视觉上也就越清晰。</p>
 <p>三者可以简单用下图综合表示：</p>
-<p><img src="http://7xidng.com1.z0.glb.clouddn.com/colorful.jpg" alt="image"></p>
+<p><img src="https://7xidng.com1.z0.glb.clouddn.com/colorful.jpg" alt="image"></p>
 <h2 id="3-方案设计"><a href="#3-方案设计" class="headerlink" title="3. 方案设计"></a>3. 方案设计</h2><h4 id="1-模块梳理"><a href="#1-模块梳理" class="headerlink" title="1. 模块梳理"></a>1. 模块梳理</h4><p>理解了基础的颜色原理后就好办事了，拿 Chrome Devtools EyeDropper 分析：</p>
-<p><img src="http://7xidng.com1.z0.glb.clouddn.com/eytedropperDetail.png" alt="image"></p>
+<p><img src="https://7xidng.com1.z0.glb.clouddn.com/eytedropperDetail.png" alt="image"></p>
 <ol>
 <li>饱和度和亮度选择器。</li>
 <li>色相选择器。</li>
@@ -373,9 +373,9 @@
 <p>① 该组件以色相组件选择的色相(hue)为背景，若是想直接使用 hue 作为 CSS 背景，需要使用 hsl(hue, saturation, value) 格式，设置为：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hsl(hue, <span class="number">100</span>%, <span class="number">50</span>%)</div></pre></td></tr></table></figure>
 <p>此时饱和度应设为 100%，因为饱和度为 0% 时为灰色，100% 时为原色。</p>
-<p><img src="http://7xidng.com1.z0.glb.clouddn.com/saturation.png" alt="image"></p>
+<p><img src="https://7xidng.com1.z0.glb.clouddn.com/saturation.png" alt="image"></p>
 <p>而亮度是指颜色偏向于白色还是黑色。50%的亮度值表示颜色位于黑色和白色中间，这时颜色会基本保持原来的颜色不变。</p>
-<p><img src="http://7xidng.com1.z0.glb.clouddn.com/value.png" alt="image"></p>
+<p><img src="https://7xidng.com1.z0.glb.clouddn.com/value.png" alt="image"></p>
 <p>② 同时利用线性渐变 <code>linear-gradient</code> 做色层叠加实现。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.saturation-white</span> &#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(to right, #fff, rgba(255,255,255,0));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.saturation-black</span> &#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(to top, #000, rgba(0,0,0,0));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
@@ -399,7 +399,7 @@
 <li>在鼠标拖动的时间绑定及解绑中，注意绑定对象与解绑对象的一致性。</li>
 </ul>
 <p>代码可以 <a href="https://github.com/Deol/regular-color" target="_blank" rel="external">戳我</a> 查看，具体实现如下：</p>
-<p><img src="http://7xidng.com1.z0.glb.clouddn.com/regular-color.jpg" alt="image"></p>
+<p><img src="https://7xidng.com1.z0.glb.clouddn.com/regular-color.jpg" alt="image"></p>
 <h2 id="附录："><a href="#附录：" class="headerlink" title="附录："></a>附录：</h2><ol>
 <li><p><a href="//developers.google.com/web/tools/chrome-devtools/inspect-styles/edit-styles">EyeDropper 介绍</a></p>
 </li>
@@ -442,8 +442,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/31/从 history 到 SPA/" rel="next" title="从 history 到 SPA">
-                <i class="fa fa-chevron-left"></i> 从 history 到 SPA
+              <a href="/2017/03/31/chrome插件开发简介（二）——如何添“加浏览器扩展白名单”/" rel="next" title="chrome插件开发简介（二）——如何添“加浏览器扩展白名单”">
+                <i class="fa fa-chevron-left"></i> chrome插件开发简介（二）——如何添“加浏览器扩展白名单”
               </a>
             
           </div>
@@ -452,8 +452,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/31/chrome插件开发简介（二）——如何添“加浏览器扩展白名单”/" rel="prev" title="chrome插件开发简介（二）——如何添“加浏览器扩展白名单”">
-                chrome插件开发简介（二）——如何添“加浏览器扩展白名单” <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/31/chrome插件开发简介（一）——开发入门/" rel="prev" title="chrome插件开发简介（一）——开发入门">
+                chrome插件开发简介（一）——开发入门 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

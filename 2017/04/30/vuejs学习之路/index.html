@@ -96,12 +96,12 @@
 <meta property="og:url" content="https://blog.kaolafed.com/2017/04/30/vuejs学习之路/index.html">
 <meta property="og:site_name" content="考拉前端团队博客">
 <meta property="og:description" content="最近在做的种草项目，其中的管理后台采用了vue.js。为什么会选用vue呢，一是因为一个管理后台，不需要考虑兼容性、seo这些前台系统需要关心的点，后台系统的交互形式又特别适合做成一个单页应用，而vue不兼容IE8及以下版本，vue的route库很好的支持单页应用，适合我们的项目；再者，当然是因为vue是目前前端圈子很火很fashion的技术框架呀，截至目前有接近7k的fork，开发者们的参与热">
-<meta property="og:image" content="http://chuantu.biz/t5/76/1493567172x2890171636.png">
-<meta property="og:updated_time" content="2017-05-03T01:06:12.123Z">
+<meta property="og:image" content="https://chuantu.biz/t5/76/1493567172x2890171636.png">
+<meta property="og:updated_time" content="2017-05-03T01:54:06.174Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vuejs学习之路">
 <meta name="twitter:description" content="最近在做的种草项目，其中的管理后台采用了vue.js。为什么会选用vue呢，一是因为一个管理后台，不需要考虑兼容性、seo这些前台系统需要关心的点，后台系统的交互形式又特别适合做成一个单页应用，而vue不兼容IE8及以下版本，vue的route库很好的支持单页应用，适合我们的项目；再者，当然是因为vue是目前前端圈子很火很fashion的技术框架呀，截至目前有接近7k的fork，开发者们的参与热">
-<meta name="twitter:image" content="http://chuantu.biz/t5/76/1493567172x2890171636.png">
+<meta name="twitter:image" content="https://chuantu.biz/t5/76/1493567172x2890171636.png">
 
 
 
@@ -338,7 +338,7 @@
 <li>在生产环境下，可以启动<code>一个带热重载、保存时静态检查</code>的服务器，做到前后端完全分离开发。</li>
 </ul>
 <p>总之，使用vue可以构建一个目前比较主流的现代化的前端开发环境。</p>
-<p><img src="http://chuantu.biz/t5/76/1493567172x2890171636.png" alt="image"> 图1</p>
+<p><img src="https://chuantu.biz/t5/76/1493567172x2890171636.png" alt="image"> 图1</p>
 <h3 id="开起我的vue工程"><a href="#开起我的vue工程" class="headerlink" title="开起我的vue工程"></a>开起我的vue工程</h3><p>在体验过vue的简单实例之后，我依然没有立马去通读开发教程，而是在自己的工程里，用命令行搭建我的webapp。此间，参照了成功实践过vue的数据营销系统，借用了其mock数据的配置方式，了解他们系统中单页应用中模块与路由的配置，知道了vuex及其中的state、action、mutation等概念，老实说，一下子接触到这许多内容，非常凌乱，想来只有官方教程才能解惑了，但我并不急着去读文档，因为我想结合工程带着疑问再去看文档，先把页面框架搭起来。</p>
 <p>单从工程目录中，基本能知道<code>index.html</code>是单页应用的承载页，<code>main.js</code>是页面入口脚本。在main.js里初始化了一个vue实例：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import Vue from &apos;vue&apos;</div><div class="line">import App from &apos;./App&apos;</div><div class="line">import router from &apos;./router&apos;</div><div class="line"></div><div class="line">Vue.config.productionTip = false</div><div class="line"></div><div class="line">/* eslint-disable no-new */</div><div class="line">new Vue(&#123;</div><div class="line">  el: &apos;#app&apos;,</div><div class="line">  router,</div><div class="line">  template: &apos;&lt;App/&gt;&apos;,</div><div class="line">  components: &#123; App &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>

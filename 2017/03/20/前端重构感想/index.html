@@ -96,13 +96,13 @@
 <meta property="og:url" content="https://blog.kaolafed.com/2017/03/20/前端重构感想/index.html">
 <meta property="og:site_name" content="考拉前端团队博客">
 <meta property="og:description" content="考拉PC前端重构之路@(重构)[组件化|拆分]">
-<meta property="og:image" content="http://haitao.nos.netease.com/1a83c8ce-9c35-4e2f-8de0-7171c436b0c1.jpg">
-<meta property="og:image" content="http://haitao.nos.netease.com/38036660-6e61-4ea0-81aa-58a05d12ffd2.jpg">
-<meta property="og:updated_time" content="2017-05-03T01:06:12.123Z">
+<meta property="og:image" content="https://haitao.nos.netease.com/1a83c8ce-9c35-4e2f-8de0-7171c436b0c1.jpg">
+<meta property="og:image" content="https://haitao.nos.netease.com/38036660-6e61-4ea0-81aa-58a05d12ffd2.jpg">
+<meta property="og:updated_time" content="2017-05-03T01:53:01.354Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端重构感想">
 <meta name="twitter:description" content="考拉PC前端重构之路@(重构)[组件化|拆分]">
-<meta name="twitter:image" content="http://haitao.nos.netease.com/1a83c8ce-9c35-4e2f-8de0-7171c436b0c1.jpg">
+<meta name="twitter:image" content="https://haitao.nos.netease.com/1a83c8ce-9c35-4e2f-8de0-7171c436b0c1.jpg">
 
 
 
@@ -357,9 +357,9 @@
 <li>询问之前的开发者；（如已离职，查找是否有交接文档之类）</li>
 </ul>
 <h4 id="功能模块拆分"><a href="#功能模块拆分" class="headerlink" title="功能模块拆分"></a>功能模块拆分</h4><p>在对业务逻辑有充分了解之后，可以进行功能拆分，把可重用的、功能独立的业务逻辑作为组件或公用模板提取，同时需要考虑组件之间的相互影响。拆分之后，可以多人并行开发，约定好外部调用组件的接口即可。<br>以下是下单页的功能模块拆分：</p>
-<p><img src="http://haitao.nos.netease.com/1a83c8ce-9c35-4e2f-8de0-7171c436b0c1.jpg" alt="enter image description here"></p>
+<p><img src="https://haitao.nos.netease.com/1a83c8ce-9c35-4e2f-8de0-7171c436b0c1.jpg" alt="enter image description here"></p>
 <p>根据同步字段orderType，来确定是普通商品订单还是账号充值订单，并初始化对应的组件；根据同步信息，异步获取下单信息（含商品信息及结算信息）；如果是普通商品订单，服务端会根据用户所选地址进行拆单，返回拆单后的商品和结算信息。按功能拆分后，组件及组件的嵌套关系如下：</p>
-<p><img src="http://haitao.nos.netease.com/38036660-6e61-4ea0-81aa-58a05d12ffd2.jpg" alt="enter image description here"></p>
+<p><img src="https://haitao.nos.netease.com/38036660-6e61-4ea0-81aa-58a05d12ffd2.jpg" alt="enter image description here"></p>
 <p>下单页目录结构：</p>
 <pre><code>javascript
 |——components
@@ -435,8 +435,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/22/feedback 开发过程中遇到的问题及解决/" rel="prev" title="feedback 开发过程中遇到的问题及解决">
-                feedback 开发过程中遇到的问题及解决 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/22/浅谈浏览器本地存储-indexedDB/" rel="prev" title="浅谈浏览器本地存储-indexedDB">
+                浅谈浏览器本地存储-indexedDB <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
